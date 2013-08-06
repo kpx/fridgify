@@ -1,6 +1,6 @@
 var Fridge = (function (fridge) {
     
-	var PLAYLIST_NAME = "frigdename1";
+	//var PLAYLIST_NAME = "frigdename1";
 	var sp = getSpotifyApi();
 
     var models = sp.require('$api/models');
@@ -40,6 +40,19 @@ var Fridge = (function (fridge) {
 		return res;
 	};
 
+	var getMagnetTexts = function() {
+		
+		var res = [];
+		var elems = $( "#poetryHolder li" );
+		$.each(elems, function(e){
+			var magnettext = $(this).text();
+			res.push(magnettext);
+		});
+
+
+		return res;
+	};
+
 	fridge.createPlaylistWithSongs = function() {
 		//create playlist
 		var name = createPlaylistName();
@@ -65,7 +78,13 @@ var Fridge = (function (fridge) {
 	}
 
 	var createPlaylistName = function() {
-		return PLAYLIST_NAME;
+		var magnettexts = getMagnetTexts();
+		var textres = "";
+
+		magnettexts.forEach(function(e){
+			textres = textres + e + " ";
+		})
+		return $.trim(textres);
 	};
 
 	return fridge;
