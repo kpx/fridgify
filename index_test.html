@@ -9,8 +9,9 @@
   <script src="js/jquery-ui.js"></script>
     <script src="js/fridge.js"></script>
   <style>
-  #poetryHolder, #magnetHolder { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; }
-  #poetryHolder li, #magnetHolder li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; border-style: solid;}
+  #poetryHolder, #magnetHolder { list-style-type: none; margin: 0; padding: 0 0 2.5em; margin-right: 10px; }
+  #poetryHolder li, #magnetHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; border-style: solid; display: inline;}
+  div { width: 90%; text-align: center; border-style: dashed; margin: 5px;} 
   </style>
   <script>
   $(function() {
@@ -21,24 +22,25 @@
   </script>
 </head>
 <body>
- 
+
+	<div >
 <ul id="poetryHolder" class="magnetConnect">
-  <li>Item 1</li>
-  <li>Item 1</li>
-  <li>Item 1</li>
-  <li>Item 1</li>
+  <li data-uri="uri1">Item 1</li>
+  <li data-uri="uri2">Item 2</li>
+  
   
 
 </ul>
- 
+</div>
+ <div >
 <ul id="magnetHolder" class="magnetConnect">
- <li>Item 2</li>
-  <li>Item 2</li>
-  <li>Item 2</li>
-  <li>Item 2</li>
+
   
 </ul>
+</div>
+
  
- <button onclick="Fridge.add_magnet('test')">Press here</button>
+ <button onclick="Fridge.addMagnet('test','uri:test1')">Press here</button>
+<button onclick="alert(Fridge.getUris());">Press here for uris</button>
 </body>
 </html>
