@@ -11,15 +11,17 @@ var SpotSearch = (function (spotsearch) {
         searchHTML.innerHTML = ""
 
         search.observe(models.EVENT.CHANGE, function() {
-            var results = search.tracks;
+            var resultsTracks = search.tracks;
             var fragment = document.createDocumentFragment();
-            for (var i=0; i<results.length; i++){
+
+            for (var i=0; i<resultsTracks.length; i++){
                 var link = document.createElement('li');
                 var a = document.createElement('a');
-                a.href = results[i].uri;
+                a.href = resultsTracks[i].uri;
                 link.appendChild(a);
-                a.innerHTML = results[i].name;
+                a.innerHTML = resultsTracks[i].name;
                 fragment.appendChild(link);
+             
             }
 
             searchHTML.appendChild(fragment);

@@ -7,5 +7,5 @@ html {
 #drop_box.over {opacity:0.8;border-color:#74c043;}
 
 /* Search results */
-#results {border: 1px dotted green; width:80%;}
-#results li {display:inline;}
+#results {border: 1px dotted green;}
+#results li {}
