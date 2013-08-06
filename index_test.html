@@ -1,0 +1,44 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Sortable - Connect lists</title>
+  
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/jquery-ui.js"></script>
+    <script src="js/fridge.js"></script>
+  <style>
+  #poetryHolder, #magnetHolder { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; }
+  #poetryHolder li, #magnetHolder li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; border-style: solid;}
+  </style>
+  <script>
+  $(function() {
+    $( "#poetryHolder, #magnetHolder" ).sortable({
+      connectWith: ".magnetConnect"
+    }).disableSelection();
+  });
+  </script>
+</head>
+<body>
+ 
+<ul id="poetryHolder" class="magnetConnect">
+  <li>Item 1</li>
+  <li>Item 1</li>
+  <li>Item 1</li>
+  <li>Item 1</li>
+  
+
+</ul>
+ 
+<ul id="magnetHolder" class="magnetConnect">
+ <li>Item 2</li>
+  <li>Item 2</li>
+  <li>Item 2</li>
+  <li>Item 2</li>
+  
+</ul>
+ 
+ <button onclick="Fridge.add_magnet('test')">Press here</button>
+</body>
+</html>
