@@ -13,12 +13,6 @@ var Fridge = (function (fridge) {
 		$( target ).append(magnet);
 	};
 
-
-
-	fridge.loadPlaylist = function(playlistUri) {
-
-	};
-
 	fridge.loadTracks = function(tracks) {
 
 		//var words = ["hej", "how", "bow"];
