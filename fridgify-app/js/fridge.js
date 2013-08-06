@@ -19,10 +19,12 @@ var Fridge = (function (fridge) {
 
 	};
 
-	fridge.loadWords = function(words) {
-		var words = ["hej", "how", "bow"];
-		words.forEach(function(word){
-			fridge.addMagnet(word, '', '#poetryHolder');
+	fridge.loadTracks = function(tracks) {
+
+		//var words = ["hej", "how", "bow"];
+		tracks.forEach(function(track){
+
+			fridge.addMagnet(track.name, track.uri, '#poetryHolder');
 		});
 	}
 
