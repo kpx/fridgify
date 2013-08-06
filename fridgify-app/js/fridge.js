@@ -7,7 +7,9 @@ var Fridge = (function (fridge) {
 
 
 	fridge.addMagnet = function(name, uri, target) {
-		var magnet = '<li data-uri="' + uri + '">' + name + '</li>';
+
+		var newName = cropName(name);
+		var magnet = '<li data-uri="' + uri + '">' + newName + '</li>';
 		$( target ).append(magnet);
 	};
 
@@ -17,10 +19,12 @@ var Fridge = (function (fridge) {
 
 	};
 
-	fridge.loadWords = function(words) {
-		var words = ["hej", "how", "bow"];
-		words.forEach(function(word){
-			fridge.addMagnet(word, '', '#poetryHolder');
+	fridge.loadTracks = function(tracks) {
+
+		//var words = ["hej", "how", "bow"];
+		tracks.forEach(function(track){
+
+			fridge.addMagnet(track.name, track.uri, '#poetryHolder');
 		});
 	}
 
@@ -70,6 +74,10 @@ var Fridge = (function (fridge) {
 		});
 
 	};
+
+	var cropName = function(words) {
+		return words.split(" ")[0];
+	}
 
 	var createPlaylistName = function() {
 		var magnettexts = getMagnetTexts();

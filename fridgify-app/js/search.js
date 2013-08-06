@@ -17,7 +17,6 @@ var SpotSearch = (function (spotsearch) {
             for (var i=0; i<resultsTracks.length; i++){
                 var link = document.createElement('li');
                 var a = document.createElement('a');
-                a.href = resultsTracks[i].name; 
                 a.href = resultsTracks[i].uri;
                 link.appendChild(a);
                 a.innerHTML = resultsTracks[i].name;
@@ -30,6 +29,23 @@ var SpotSearch = (function (spotsearch) {
 
         search.appendNext();
 	};
+
+    spotsearch.lucky = function() {
+        var searchtext = $( "#searchtext").val();
+        var search = new models.Search(searchtext);
+        search.localResults = models.LOCALSEARCHRESULTS.APPEND;
+
+        search.observe(models.EVENT.CHANGE, function() {
+            var results = search.tracks;
+            var trackName = results[0].name;
+            var trackUri = results[0].uri;
+            Fridge.addMagnet(trackName, trackUri, '#magnetHolder');         
+        });
+        search.appendNext();
+
+    };
+
+
 	return spotsearch;
 
 } (SpotSearch || {}));
