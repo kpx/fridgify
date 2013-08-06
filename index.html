@@ -1,0 +1,46 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Sortable - Display as grid</title>
+  
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/fridge.js"></script>
+  <style>
+  .sortableclass { list-style-type: none; margin: 0; padding: 0; width: 200px; }
+  li {margin:2px;border-style: solid; float: left; font-size: 2; text-align: center; }
+  </style>
+  <script>
+  $(function() {
+    $( "#sortable1, #sortable2" ).sortable({
+     connectWith: ".sortableclass"
+    }).disableSelection();
+    
+  });
+  </script>
+</head>
+<body>
+<div id="poetry">
+<ul class="sortableclass" id="sortable1">
+  <li>namn1</li>
+  <li>namn2</li>
+   <li>namn3</li>
+  <li>namn4</li>
+    <li>namn5</li>
+
+</ul>
+</div>
+<br>
+<br>
+<div id="magnet_holder">
+ 
+	<ul class="sortableclass" id="sortable2">
+	  <li>test</li>
+  </ul>
+</div>
+<button onclick="Fridge.add_magnet('test')">Press here</button>
+ 
+</body>
+</html>

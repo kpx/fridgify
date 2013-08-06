@@ -1,10 +1,9 @@
 var Fridge = (function (fridge) {
     
-    //private: without fridge.
-    var private_var = 0;
-
-	var fridge.public_function = function() {
-
+	fridge.add_magnet = function(name) {
+		var magnet = '<li>' + name + '</li>';
+		$( "#sortable2" ).append(magnet);
 	};
+	return fridge;
 
 } (Fridge || {}));
