@@ -1,12 +1,31 @@
 var Fridge = (function (fridge) {
     
-	fridge.addMagnet = function(name, uri) {
+	var PLAYLIST_NAME = "frigdename1";
+	var sp = getSpotifyApi();
+
+    var models = sp.require('$api/models');
+
+
+	fridge.addMagnet = function(name, uri, target) {
 		var magnet = '<li data-uri="' + uri + '">' + name + '</li>';
-		$( "#magnetHolder" ).append(magnet);
+		$( target ).append(magnet);
 	};
 
-	//Gets the uri from poetry in order
-	fridge.getUris = function() {
+
+
+	fridge.loadPlaylist = function(playlistUri) {
+
+	};
+
+	fridge.loadWords = function(words) {
+		var words = ["hej", "how", "bow"];
+		words.forEach(function(word){
+			fridge.addMagnet(word, '', '#poetryHolder');
+		});
+	}
+
+		//Gets the uri from poetry in order
+	var getUris = function() {
 		
 		var res = [];
 		var elems = $( "#poetryHolder li" );
@@ -17,6 +36,30 @@ var Fridge = (function (fridge) {
 
 
 		return res;
+	};
+
+	fridge.createPlaylistWithSongs = function() {
+		//create playlist
+		var name = createPlaylistName();
+		//var playlist = models.Playlist.fromURI('spotify:user:magerleagues:playlist:3S0u0nTWj4P2bF5oq0DzLl');
+		//new api??
+		//var playlist = models.Playlist.create(name).done(function(){
+
+		//});
+		
+		var playlist = new models.Playlist(name);
+
+
+		// var uris = getUris();
+		// uris.forEach(function(e){
+		// 	//add each uri to playlist
+		// 	playlist.add(e);
+		// });
+
+	};
+
+	var createPlaylistName = function() {
+		return PLAYLIST_NAME;
 	};
 
 	return fridge;
