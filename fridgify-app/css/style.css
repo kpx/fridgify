@@ -5,3 +5,7 @@ html {
 /* Drop Box */
 #drop_box {border:4px dashed #333;width:50%;height:200px;padding:10px;}
 #drop_box.over {opacity:0.8;border-color:#74c043;}
+
+/* Search results */
+#results {border: 1px dotted green; width:80%;}
+#results li {display:inline;}

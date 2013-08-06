@@ -9,13 +9,21 @@
         <!-- Project CSS files -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
+        <!-- Project libraries -->
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+
         <!-- Project JS files -->
         <script src="js/dragdrop.js"></script>
+        <script src="js/search.js"></script>
     </head>
     <body>
         <div id="wrapper">
             <div id="index" class="section">
                 <h1>Fridgify</h1>
+                <input type="text" id="searchtext" />
+                <button onclick="SpotSearch.func();">foo</button>
+                <ul id="results"></ul>
                 <p>Drop songs or playlists here:</p>
                 <div id="drop_box"></div>
             </div>

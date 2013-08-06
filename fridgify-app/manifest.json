@@ -8,6 +8,7 @@
   "AppName": {
     "en": "Fridgify"
   },
+  "AcceptedLinkTypes": ["playlist","track"],
   "BundleIdentifier": "fridgify",
   "BundleType": "Application",
   "BundleVersion": "0.1",

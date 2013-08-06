@@ -1,12 +1,11 @@
 "use strict";
 window.onload = function() {
-    var sp = getSpotifyApi();
-    var models = sp.require('$api/models');
-
+    //var models = sp.require('$api/models');
     // Handle drops
     var drop_box = document.querySelector('#drop_box');
 
     drop_box.addEventListener('dragstart', function(e){
+        //e.dataTransfer.setData('text/html', this.innerHTML);
         e.dataTransfer.setData('text/html', this.innerHTML);
         e.dataTransfer.effectAllowed = 'copy';
     }, false);
@@ -30,10 +29,23 @@ window.onload = function() {
 
     drop_box.addEventListener('drop', function(e){
         e.preventDefault();
-        var drop = models.Playlist.fromURI(e.dataTransfer.getData('text'));
+        var drop = {};
+        getSpotifyApi();
+        //var trackURI = e.dataTransfer.getData('text');
+
+        //var drop = models.Track.fromURI(e.dataTransfer.getData('text'));
+
+        var t = models.Track.fromURI(e.dataTransfer.getData('text'), function(track) {
+             drop = track;
+        });
+        //drop_box.innerHTML = models.Track.fromURI(e.dataTransfer.getData('text'));
+        
+
+        //models.Track.fromURI(e.dataTransfer.getData('text').load('name', 'duration').done(console.log('The track ' + track.name + ' is ' + track.duration + ' ms long.')));
+
         this.classList.remove('over');
         var success_message = document.createElement('p');
-        success_message.innerHTML = 'Playlist successfully dropped: ' + drop.uri;
+        success_message.innerHTML = "Track: " + drop.name;
         this.appendChild(success_message);
     }, false);
 }
