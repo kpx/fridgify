@@ -36,16 +36,19 @@ window.onload = function() {
         //var drop = models.Track.fromURI(e.dataTransfer.getData('text'));
 
         var t = models.Track.fromURI(e.dataTransfer.getData('text'), function(track) {
-             drop = track;
+            drop = track;
+            
+            // var success_message = document.createElement('p');
+            // success_message.innerHTML = "Track: " + drop.name;
+            // this.appendChild(success_message);
+
+            Fridge.addMagnet(drop.name, drop.uri, '#magnetHolder');
         });
         //drop_box.innerHTML = models.Track.fromURI(e.dataTransfer.getData('text'));
-        
+        this.classList.remove('over');
 
         //models.Track.fromURI(e.dataTransfer.getData('text').load('name', 'duration').done(console.log('The track ' + track.name + ' is ' + track.duration + ' ms long.')));
 
-        this.classList.remove('over');
-        var success_message = document.createElement('p');
-        success_message.innerHTML = "Track: " + drop.name;
-        this.appendChild(success_message);
+
     }, false);
 }
