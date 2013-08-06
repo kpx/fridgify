@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Fridgify</title>
-    <!-- Include the stylesheets you need for the Views components -->
-    <!-- See https://developer.spotify.com/technologies/apps/docs/preview/views/ -->
-    <link rel="stylesheet" href="$views/css/image.css">
-    <link rel="stylesheet" href="$views/css/list.css">
-    <link rel="stylesheet" href="$views/css/buttons.css">
-    <!-- <link rel="stylesheet" href="$views/css/throbber.css"> -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- If you are using the preview SDK for webplayer then uncomment the script below -->
-    <!--script src="http://d1hza3lyffsoht.cloudfront.net/preview-sdk/bootstrap.js"></script-->
-  </head>
-  <body>
-    <h1></h1>
-    <div id="albumCoverContainer"></div>
-    <div id="buttonContainer"></div>
-    <div id="playlistContainer"></div>
-    <script src="scripts/main.js"></script>
+    <head>
+        <!-- Spotify CSS files -->
+        <link rel="stylesheet" type="text/css" href="sp://resources/css/eve.css">
+        <link rel="stylesheet" type="text/css" href="sp://resources/css/api.css">
+        <link rel="stylesheet" type="text/css" href="sp://resources/css/player.css">
+        <link rel="stylesheet" type="text/css" href="sp://resources/css/list.css">
+
+        <!-- Project CSS files -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- Project JS files -->
+        <script src="js/dragdrop.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="index" class="section">
+                <h1>Fridgify</h1>
+                <p>Drop songs or playlists here:</p>
+                <div id="drop_box"></div>
+            </div>
+        </div> 
   </body>
 </html>
