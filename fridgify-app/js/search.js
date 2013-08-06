@@ -37,7 +37,7 @@ var SpotSearch = (function (spotsearch) {
             var results = search.tracks;
             var trackName = results[0].name;
             var trackUri = results[0].uri;
-            Fridge.addMagnet(trackName, trackUri, '#magnetHolder');         
+            Fridge.addMagnet(trackName, trackUri, '#poetryHolder');         
         });
         search.appendNext();
 
