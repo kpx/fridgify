@@ -7,7 +7,9 @@ var Fridge = (function (fridge) {
 
 
 	fridge.addMagnet = function(name, uri, target) {
-		var magnet = '<li data-uri="' + uri + '">' + name + '</li>';
+
+		var newName = cropName(name);
+		var magnet = '<li data-uri="' + uri + '">' + newName + '</li>';
 		$( target ).append(magnet);
 	};
 
@@ -57,6 +59,10 @@ var Fridge = (function (fridge) {
 		});
 
 	};
+
+	var cropName = function(words) {
+		return words.split(" ")[0];
+	}
 
 	var createPlaylistName = function() {
 		return PLAYLIST_NAME;
