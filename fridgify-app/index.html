@@ -20,9 +20,7 @@
 
 
         <style>
-        #poetryHolder, #magnetHolder { list-style-type: none; margin: 10px; padding: 0 0 2.5em; margin-right: 10px; }
-        #poetryHolder li, #magnetHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; border-style: solid; display: inline;}
-        div { width: 90%; text-align: center; border-style: dashed; margin: 5px; margin-left: auto ; margin-right: auto ;} 
+
         </style>
 
         <script>
@@ -41,6 +39,7 @@
                 <button onclick="SpotSearch.func();">foo</button>
                 <button onclick="SpotSearch.lucky();">i feel lucky</button>
                 <button onclick="Fridge.createPlaylistWithSongs();">Generate Playlist</button>
+                <button onclick="Fridge.clearPoetry();">Clear poetry</button>
                 <ul id="results"></ul>
                 <p>Drop songs or playlists here:</p>
                 <!--<div id="drop_box"></div>-->
@@ -48,10 +47,7 @@
                     <ul id="poetryHolder" class="magnetConnect">
                   </ul>
                 </div>
-                <div >
-                    <ul id="magnetHolder" class="magnetConnect">
-                    </ul>
-                </div>
+
         </div>
     </div> 
   </body>
