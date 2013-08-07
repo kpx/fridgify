@@ -37,9 +37,17 @@ var SpotSearch = (function (spotsearch) {
 
         search.observe(models.EVENT.CHANGE, function() {
             var results = search.tracks;
-            var trackName = results[0].name;
-            var trackUri = results[0].uri;
-            Fridge.addMagnet(trackName, trackUri, '#magnetHolder');         
+            var names = results.map(function(e){return e.name.split(" ")[0].toUpperCase();});
+            var upperSearch = searchtext.toUpperCase();
+
+
+            var index = $.inArray(upperSearch, names);
+            if (index != -1){
+                var trackName = results[index].name;
+                var trackUri = results[index].uri;
+                Fridge.addMagnet(trackName, trackUri, '#poetryHolder');    
+            }
+                     
         });
         search.appendNext();
 

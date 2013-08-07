@@ -37,7 +37,7 @@ window.onload = function() {
         } else {
 
             var t = models.Track.fromURI(text, function(track) {
-                Fridge.addMagnet(track.name, track.uri, '#magnetHolder');
+                Fridge.addMagnet(track.name, track.uri, '#poetryHolder');
             });
 
         }

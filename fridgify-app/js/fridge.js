@@ -22,7 +22,33 @@ var Fridge = (function (fridge) {
 		});
 	}
 
-		//Gets the uri from poetry in order
+
+
+	fridge.createPlaylistWithSongs = function() {
+		//create playlist
+		var name = createPlaylistName();
+		//var playlist = models.Playlist.fromURI('spotify:user:magerleagues:playlist:3S0u0nTWj4P2bF5oq0DzLl');
+		//new api??
+		//var playlist = models.Playlist.create(name).done(function(){
+
+		//});
+		
+		var playlist = new models.Playlist(name);
+
+
+		var uris = getUris();
+		uris.forEach(function(e){
+			//add each uri to playlist
+			playlist.add(e);
+		});
+
+	};
+
+	fridge.clearPoetry = function() {
+		$("#poetryHolder").html("");
+	};
+
+			//Gets the uri from poetry in order
 	var getUris = function() {
 		
 		var res = [];
@@ -47,26 +73,6 @@ var Fridge = (function (fridge) {
 
 
 		return res;
-	};
-
-	fridge.createPlaylistWithSongs = function() {
-		//create playlist
-		var name = createPlaylistName();
-		//var playlist = models.Playlist.fromURI('spotify:user:magerleagues:playlist:3S0u0nTWj4P2bF5oq0DzLl');
-		//new api??
-		//var playlist = models.Playlist.create(name).done(function(){
-
-		//});
-		
-		var playlist = new models.Playlist(name);
-
-
-		var uris = getUris();
-		uris.forEach(function(e){
-			//add each uri to playlist
-			playlist.add(e);
-		});
-
 	};
 
 	var cropName = function(words) {
