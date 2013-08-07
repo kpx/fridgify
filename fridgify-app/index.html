@@ -25,9 +25,7 @@
 
         <script>
         $(function() {
-            $( "#poetryHolder, #magnetHolder" ).sortable({
-              connectWith: ".magnetConnect"
-          }).disableSelection();
+            $( "#poetryHolder, #magnetHolder" ).sortable().disableSelection();
         });
         </script>
     </head>
@@ -42,12 +40,11 @@
                 <button onclick="Fridge.clearPoetry();">Clear poetry</button>
                 <ul id="results"></ul>
                 <p>Drop songs or playlists here:</p>
-                <!--<div id="drop_box"></div>-->
-                <div id="drop_box">
+                
+		<div id="drop_box">
                     <ul id="poetryHolder" class="magnetConnect">
                   </ul>
                 </div>
-
         </div>
     </div> 
   </body>

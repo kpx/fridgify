@@ -21,39 +21,69 @@ var SpotSearch = (function (spotsearch) {
                 link.appendChild(a);
                 a.innerHTML = resultsTracks[i].name;
                 fragment.appendChild(link);
-             
+
             }
 
             searchHTML.appendChild(fragment);
         });
 
         search.appendNext();
-	};
-
-    spotsearch.lucky = function() {
-        var searchtext = $( "#searchtext").val();
-        var search = new models.Search(searchtext);
-        search.localResults = models.LOCALSEARCHRESULTS.APPEND;
-
-        search.observe(models.EVENT.CHANGE, function() {
-            var results = search.tracks;
-            var names = results.map(function(e){return e.name.split(" ")[0].toUpperCase();});
-            var upperSearch = searchtext.toUpperCase();
-
-
-            var index = $.inArray(upperSearch, names);
-            if (index != -1){
-                var trackName = results[index].name;
-                var trackUri = results[index].uri;
-                Fridge.addMagnet(trackName, trackUri, '#poetryHolder');    
-            }
-                     
-        });
-        search.appendNext();
-
     };
 
+    spotsearch.lucky = function() {
 
-	return spotsearch;
+        var searchtext = $( "#searchtext").val();
+        var parts = searchtext.split(" ");
+        var resultnames = [];
+        var resultuppercase = [];
+        var resulturis = [];
+        var i = 0;
+
+        parts.forEach(function(luckyPart){
+            var search = new models.Search(luckyPart);
+            search.localResults = models.LOCALSEARCHRESULTS.APPEND;
+
+            search.observe(models.EVENT.CHANGE, function() {
+                var results = search.tracks;
+                var names = results.map(function(e){return e.name.split(" ")[0].toUpperCase();});
+                var upperSearch = luckyPart.toUpperCase();
+
+                var index = $.inArray(upperSearch, names);
+                if (index != -1){
+                    var trackName = results[index].name;
+                    var trackUri = results[index].uri;
+
+                    resultuppercase.push(upperSearch);
+                    resultnames.push(trackName);
+                    resulturis.push(trackUri);
+                }
+
+                i++;
+
+                //Add the words when the last search result is returned
+                //Otherwise, the order would get messed up
+                if (i == parts.length){
+                    parts.forEach(function(currentpart){
+                        var index = $.inArray(currentpart.toUpperCase(), resultuppercase);
+                        if (index != -1){
+                            var trackName = resultnames[index];
+                            var trackUri = resulturis[index];
+                            Fridge.addMagnet(trackName, trackUri, '#poetryHolder');    
+                        }
+                    });
+
+                }
+
+            });
+search.appendNext();
+
+
+
+});
+
+
+};
+
+return spotsearch;
 
 } (SpotSearch || {}));
