@@ -8,7 +8,7 @@ var Fridge = (function (fridge) {
 
 	fridge.addMagnet = function(name, uri, target) {
 
-		var newName = cropName(name);
+		var newName = cropName(name.toLowerCase());
 		var rand = Math.floor((Math.random()*MAX_TWIST_DEG)+1);
 		var neg = Math.floor(Math.random()*2) == 1 ? 1 : -1;
 

@@ -36,7 +36,11 @@ img {margin-right: 5px; margin-bottom: -4px}
 
 
 #poetryHolder{ list-style-type: none;  } 
-#poetryHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; border-style: solid; display: inline; float: left; color: black; background-color: white;}
+#poetryHolder li { 
+	margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.5em; border-style: solid; display: inline; float: left; color: black; background-color: white;
+	font-family: Times New Roman;
+	font-weight:bold;
+}
 
 /* Drop Box */
 #drop_box {padding:35px; margin-right: auto; margin-left: auto; 
