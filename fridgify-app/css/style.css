@@ -1,8 +1,10 @@
 html {
   overflow: auto;
+  font-family: "Lucida Grande", sans-serif;
 }
 
-#poetryHolder{ list-style-type: none; }
+
+#poetryHolder{ list-style-type: none; } 
 #poetryHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; border-style: solid; display: inline; float: left;}
 
 /* Drop Box */

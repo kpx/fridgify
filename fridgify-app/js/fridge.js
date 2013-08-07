@@ -1,6 +1,6 @@
 var Fridge = (function (fridge) {
     
-	//var PLAYLIST_NAME = "frigdename1";
+	var MAX_TWIST_DEG = 3;
 	var sp = getSpotifyApi();
 
     var models = sp.require('$api/models');
@@ -9,13 +9,17 @@ var Fridge = (function (fridge) {
 	fridge.addMagnet = function(name, uri, target) {
 
 		var newName = cropName(name);
-		var magnet = '<li data-uri="' + uri + '">' + newName + '</li>';
+		var rand = Math.floor((Math.random()*MAX_TWIST_DEG)+1);
+		var neg = Math.floor(Math.random()*2) == 1 ? 1 : -1;
+
+		var rotate = 'rotate(' + neg*rand + 'deg);';
+		var style = '-webkit-transform:' + rotate;
+		var magnet = '<li style=' + style + '" data-uri="' + uri + '">' + newName + '</li>';
 		$( target ).append(magnet);
 	};
 
 	fridge.loadTracks = function(tracks) {
 
-		//var words = ["hej", "how", "bow"];
 		tracks.forEach(function(track){
 
 			fridge.addMagnet(track.name, track.uri, '#poetryHolder');
@@ -27,14 +31,7 @@ var Fridge = (function (fridge) {
 	fridge.createPlaylistWithSongs = function() {
 		//create playlist
 		var name = createPlaylistName();
-		//var playlist = models.Playlist.fromURI('spotify:user:magerleagues:playlist:3S0u0nTWj4P2bF5oq0DzLl');
-		//new api??
-		//var playlist = models.Playlist.create(name).done(function(){
-
-		//});
-		
 		var playlist = new models.Playlist(name);
-
 
 		var uris = getUris();
 		uris.forEach(function(e){
@@ -47,6 +44,16 @@ var Fridge = (function (fridge) {
 	fridge.clearPoetry = function() {
 		$("#poetryHolder").html("");
 	};
+
+	fridge.twistMagnets = function() {
+		var magnets = $( "#poetryHolder li" );
+		$.each(magnets, function(e){
+			var rand = Math.floor((Math.random()*10)+1);
+			var rotate = 'rotate('+ rand + 'deg)';
+			$(this).css('-webkit-transform', rotate);
+		});
+	};
+
 
 			//Gets the uri from poetry in order
 	var getUris = function() {
