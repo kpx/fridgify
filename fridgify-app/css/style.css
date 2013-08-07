@@ -26,6 +26,14 @@ html {
 
 img {margin-right: 5px; margin-bottom: -4px}
 
+#searchtext {
+	border-radius: 5px 5px;
+	padding: 4px;
+	box-shadow: none;
+	width: 150px;
+	height: 17px;
+}
+
 
 #poetryHolder{ list-style-type: none;  } 
 #poetryHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; border-style: solid; display: inline; float: left; color: black; background-color: white;}
