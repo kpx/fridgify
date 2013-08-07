@@ -44,6 +44,8 @@ var SpotSearch = (function (spotsearch) {
 
     spotsearch.lucky = function() {
 
+        var img = '<img id="load" src="../images/loading.gif">';
+        $( '#drop_box' ).append(img);
         var searchtext = $( "#searchtext").val();
         var parts = searchtext.split(" ");
         var resultnames = [];
@@ -75,6 +77,7 @@ var SpotSearch = (function (spotsearch) {
                 //Add the words when the last search result is returned
                 //Otherwise, the order would get messed up
                 if (i == parts.length){
+                    $( '#load' ).remove();
                     parts.forEach(function(currentpart){
                         var index = $.inArray(currentpart.toUpperCase(), resultuppercase);
                         if (index != -1){
