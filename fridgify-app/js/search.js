@@ -17,8 +17,13 @@ var SpotSearch = (function (spotsearch) {
         search.observe(models.EVENT.CHANGE, function() {
             var resultsTracks = search.tracks;
             var fragment = document.createDocumentFragment();
+            var resultTracksLength = resultsTracks.length;
 
-            for (var i=0; i<resultsTracks.length; i++){
+            if (resultTracksLength > 15){
+                resultTracksLength = 15;
+            }
+
+            for (var i=0; i<resultTracksLength; i++){
                 var link = document.createElement('li');
                 var a = document.createElement('a');
                 a.href = resultsTracks[i].uri;

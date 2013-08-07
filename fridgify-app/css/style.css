@@ -28,11 +28,11 @@ img {margin-right: 5px; margin-bottom: -4px}
 
 
 #poetryHolder{ list-style-type: none;  } 
-#poetryHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; border-style: solid; display: inline; float: left;}
+#poetryHolder li { margin: 5px 5px 5px 5px; padding: 5px; font-size: 1.2em; border-style: solid; display: inline; float: left; color: black; background-color: white;}
 
 /* Drop Box */
-#drop_box {padding:5px; margin-right: auto; margin-left: auto; 
-	background: url('../images/fridge2.png');background-repeat: no-repeat; width:600px; height: 476px;}
+#drop_box {padding:35px; margin-right: auto; margin-left: auto; 
+	background: url('../images/fridge2.png');background-repeat: no-repeat; width:600px; height:400px;}
 #drop_box.over {opacity:0.8;border-color:#74c043;}
 
 /* Search results */
