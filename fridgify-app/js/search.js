@@ -17,13 +17,14 @@ var SpotSearch = (function (spotsearch) {
         search.observe(models.EVENT.CHANGE, function() {
             var resultsTracks = search.tracks;
             var fragment = document.createDocumentFragment();
-
+ 
             for (var i=0; i<resultsTracks.length; i++){
                 var link = document.createElement('li');
+                //link.appendChild(img);
                 var a = document.createElement('a');
                 a.href = resultsTracks[i].uri;
                 link.appendChild(a);
-                a.innerHTML = resultsTracks[i].name;
+                a.innerHTML = '<img src="../images/icons/track.png">' + resultsTracks[i].name;
                 fragment.appendChild(link);
 
             }

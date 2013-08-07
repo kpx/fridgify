@@ -35,15 +35,22 @@
     <body>
         <div id="wrapper">
             <div id="index" class="section">
-                <h1>Fridgify</h1>
+                <div style="vertical-align:middle">
+                    <center>
+                <img style="vertical-align:middle" src="images/logo.png">
+
+                <br>
                 <input type="text" id="searchtext" />
 
                 <button onclick="SpotSearch.func();" class="myButton"><img src="images/icons/search.png">Search</button>
                 <button onclick="SpotSearch.lucky();" class="myButton">i feel lucky</button>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <button onclick="Fridge.createPlaylistWithSongs();" class="myButton"><img src="images/icons/playlist.png">Generate Playlist</button>
                 <button onclick="Fridge.clearPoetry();" class="myButton">Clear poetry</button>
+                </center>
+                </div>
                 <ul id="results"></ul>
-                <p>Drop songs or playlists here:</p>
+                
                 
 		<div id="drop_box">
                     <ul id="poetryHolder" class="magnetConnect">
