@@ -1,10 +1,14 @@
 var sp = getSpotifyApi();
 var models = sp.require('$api/models');
+var views = sp.require('$api/views');
 
 var SpotSearch = (function (spotsearch) {
     spotsearch.func = function() {
     	var searchtext = $( "#searchtext").val();
         var search = new models.Search(searchtext);
+
+        $( '#results' ).css('border-left', '1px solid grey');
+        $( '#results' ).css('margin-left', '3px');
         search.localResults = models.LOCALSEARCHRESULTS.APPEND;
 
         var searchHTML = document.getElementById('results');

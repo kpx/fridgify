@@ -25,8 +25,11 @@
 
         <script>
         $(function() {
-            $( "#poetryHolder, #magnetHolder" ).sortable().disableSelection();
+            $( "#poetryHolder" ).sortable().disableSelection();
+            //Button.withLabel
+            //$( "#buttondiv" )
         });
+
         </script>
     </head>
     <body>
@@ -34,10 +37,11 @@
             <div id="index" class="section">
                 <h1>Fridgify</h1>
                 <input type="text" id="searchtext" />
-                <button onclick="SpotSearch.func();"><img src="images/icons/search.png">Search</button>
-                <button onclick="SpotSearch.lucky();">i feel lucky</button>
-                <button onclick="Fridge.createPlaylistWithSongs();"><img src="images/icons/playlist.png">Generate Playlist</button>
-                <button onclick="Fridge.clearPoetry();">Clear poetry</button>
+                <div id="buttondiv"></div>
+                <button onclick="SpotSearch.func();" class="myButton"><img src="images/icons/search.png">Search</button>
+                <button onclick="SpotSearch.lucky();" class="myButton">i feel lucky</button>
+                <button onclick="Fridge.createPlaylistWithSongs();" class="myButton"><img src="images/icons/playlist.png">Generate Playlist</button>
+                <button onclick="Fridge.clearPoetry();" class="myButton">Clear poetry</button>
                 <ul id="results"></ul>
                 <p>Drop songs or playlists here:</p>
                 
