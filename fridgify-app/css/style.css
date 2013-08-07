@@ -32,7 +32,7 @@ img {margin-right: 5px; margin-bottom: -4px}
 
 /* Drop Box */
 #drop_box {padding:5px; margin-right: auto; margin-left: auto; 
-	background: url('../images/fridge.png');background-repeat: no-repeat; width:600px; height: 476px;}
+	background: url('../images/fridge2.png');background-repeat: no-repeat; width:600px; height: 476px;}
 #drop_box.over {opacity:0.8;border-color:#74c043;}
 
 /* Search results */
